@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input, button { padding: 10px; margin: 10px; width: 80%; }
+    </style>
+</head>
+<body>
+
+    <h1>Text-to-Speech Converter 🔊</h1>
+    <form method="POST">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text here..." required></textarea>
+        <br>
+        <button type="submit">Convert to Speech</button>
+    </form>
+
+    {% if audio_file %}
+        <h2>Generated Speech:</h2>
+        <audio controls>
+            <source src="{{ audio_file }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <br>
+        <a href="{{ audio_file }}" download>Download Audio</a>
+    {% endif %}
+
+</body>
+</html>
